@@ -17,20 +17,12 @@
     "terminal": {
       "patterns": [
         {
-          "match": "^(\\>|\\$)\\s+(\\w+)(.+)$",
+          "match": "^(\\>|\\$)\\s+(\\w+)\\b(.*)$",
           "captures": {
             "1": { "name": "keyword.operator.prompt.terminal.log" },
             "2": { "name": "entity.name.function.terminal.log" },
             "3": {}
           }
-        },
-        {
-          "begin": "^(?:>|\\$)\\s+(\\w+)",
-          "end": "$",
-          "beginCaptures": {
-            "1": { "name": "entity.name.function.terminal.log" }
-          },
-          "patterns": [{}]
         }
       ]
     },
