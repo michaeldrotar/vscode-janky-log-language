@@ -1,0 +1,45 @@
+{
+  "name": "janky-log-language",
+  "version": "1.0.0",
+  "displayName": "Janky Log Language",
+  "description": "The Log language and grammar files are a little, well... janky. Let's make things look awesome with proper colors that help more than confuse!",
+  "categories": [
+    "Programming Languages"
+  ],
+  "homepage": "https://github.com/michaeldrotar/vscode-janky-log-language",
+  "bugs": {
+    "url": "https://github.com/michaeldrotar/vscode-janky-log-language/issues"
+  },
+  "license": "MIT",
+  "author": "michaeldrotar",
+  "publisher": "michaeldrotar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaeldrotar/vscode-janky-log-language.git"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "log",
+        "aliases": [
+          "Log"
+        ],
+        "extensions": [
+          ".log",
+          "*.log.?"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "log",
+        "scopeName": "text.log",
+        "path": "./syntaxes/log.tmLanguage.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.51.0"
+  }
+}

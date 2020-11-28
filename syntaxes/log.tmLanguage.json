@@ -1,0 +1,104 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Log file",
+  "scopeName": "text.log",
+  "patterns": [
+    {
+      "include": "#tags"
+    },
+    {
+      "include": "#terminal"
+    },
+    {
+      "include": "#json"
+    }
+  ],
+  "repository": {
+    "terminal": {
+      "patterns": [
+        {
+          "match": "^(\\>|\\$)\\s+(\\w+)(.+)$",
+          "captures": {
+            "1": { "name": "keyword.operator.prompt.terminal.log" },
+            "2": { "name": "entity.name.function.terminal.log" },
+            "3": {}
+          }
+        },
+        {
+          "begin": "^(?:>|\\$)\\s+(\\w+)",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "entity.name.function.terminal.log" }
+          },
+          "patterns": [{}]
+        }
+      ]
+    },
+    "json": {
+      "patterns": [
+        {
+          "begin": "\\{",
+          "end": "\\}",
+          "patterns": [{ "include": "source.js" }]
+        }
+      ]
+    },
+    "levels": {
+      "patterns": [
+        {
+          "name": "constant.language.verbose.log",
+          "match": "(?i)\\bverbose\\b"
+        },
+        {
+          "name": "constant.language.debug.log",
+          "match": "(?i)\\bdebug\\b"
+        },
+        {
+          "name": "constant.language.info.log",
+          "match": "(?i)\\binfo\\b"
+        },
+        {
+          "name": "constant.language.warn.log",
+          "match": "(?i)\\bwarn\\b"
+        },
+        {
+          "name": "constant.language.error.log",
+          "match": "(?i)\\berror\\b"
+        }
+      ]
+    },
+    "tags": {
+      "patterns": [
+        {
+          "begin": "^\\[|(?<=\\[.*\\]\\s*)\\[",
+          "end": "\\]",
+          "contentName": "constant.other.log",
+          "patterns": [
+            {
+              "include": "#levels"
+            },
+            {
+              "include": "#timestamps"
+            }
+          ]
+        }
+      ]
+    },
+    "timestamps": {
+      "patterns": [
+        {
+          "name": "constant.numeric.timestamp.date.log",
+          "match": "\\b\\d{4}-[01]\\d-[0123]\\d\\b"
+        },
+        {
+          "name": "constant.numeric.timestamp.time.log",
+          "match": "(?i)\\b(?:[1-9]|10|11|12):[0-5]\\d:[0-5]\\d(?: (?:am|pm))\\b"
+        },
+        {
+          "name": "constant.numeric.timestamp.time.log",
+          "match": "\\b[012]\\d:[0-5]\\d:[0-5]\\d(?:.\\d{0,3})?\\b"
+        }
+      ]
+    }
+  }
+}
