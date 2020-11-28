@@ -39,6 +39,9 @@
       }
     ]
   },
+  "scripts": {
+    "package": "vsce package"
+  },
   "engines": {
     "vscode": "^1.51.0"
   }
